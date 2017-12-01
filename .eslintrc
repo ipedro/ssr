@@ -1,0 +1,33 @@
+{
+    "extends": "eslint-config-airbnb",
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
+        "react/react-in-jsx-scope": 2,
+        "react/jsx-filename-extension": 0,
+        "import/prefer-default-export": 0,
+        "import/extensions": 0,
+        "jsx-a11y/anchor-is-valid": 0,
+        "jsx-a11y/media-has-caption": 0,
+        "block-scoped-var": 0,
+        "padded-blocks": 0,
+        "no-console": 0,
+        "no-shadow": 0,
+        "semi": 0,
+        "react/no-unused-prop-types": 0,
+        "no-nested-ternary": 0,
+        "max-len": ["error", 100],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": ["**/*.test.js", "webpack.config.js"]
+            }
+        ]
+    },
+    "plugins": ["react"]
+}
