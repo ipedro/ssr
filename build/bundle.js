@@ -248,6 +248,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _serializeJavascript = __webpack_require__(22);
+
+var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
+
 var _server = __webpack_require__(10);
 
 var _reactRouterDom = __webpack_require__(11);
@@ -277,7 +281,7 @@ exports.default = function (req, store) {
     )
   ));
 
-  return '\n    <html>\n      <head></head>\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.INITIAL_STATE = ' + JSON.stringify(store.getState()) + '\n        </script>\n        <script src="bundle.js"></script>\n      </body>\n    </html>\n  ';
+  return '\n    <html>\n      <head></head>\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n        </script>\n        <script src="bundle.js"></script>\n      </body>\n    </html>\n  ';
 };
 
 /***/ }),
@@ -523,6 +527,12 @@ exports.default = {
     return { users: state.users };
   }, { fetchUsers: _actions.fetchUsers })(UserList)
 };
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = require("serialize-javascript");
 
 /***/ })
 /******/ ]);
