@@ -1,14 +1,14 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
+import Home from './pages/Home'
+import UserList from './pages/UserList'
 
-import Home from './components/Home'
-import UserList from './components/UserList'
-
-const Routes = () => (
-  <div>
-    <Route exact path="/" component={Home} />
-    <Route path="/users" component={UserList} />
-  </div>
-)
-
-export default Routes
+export default [
+  {
+    ...Home,
+    path: '/',
+    exact: true,
+  },
+  {
+    ...UserList,
+    path: '/users',
+  },
+]
