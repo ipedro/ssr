@@ -5,6 +5,7 @@ import { extractCritical } from 'emotion-server'
 import { StaticRouter as Router } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
+import { Helmet } from 'react-helmet'
 
 import routes from '../client/routes'
 
@@ -17,6 +18,11 @@ export default (req, store, context) => {
     </Provider>
   )
 
+  // SEO support:
+  const helmet = Helmet.renderStatic()
+  const meta = helmet.meta.toString()
+  const title = helmet.title.toString()
+
   const content = renderToString(app)
 
   const { ids, css } = extractCritical(content)
@@ -25,7 +31,10 @@ export default (req, store, context) => {
 
   return `
     <html>
-      <head></head>
+      <head>
+        ${meta}
+        ${title}
+      </head>
       <body>
         <div id="root">${content}</div>
         <script>

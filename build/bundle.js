@@ -392,6 +392,8 @@ var _reactRouterConfig = __webpack_require__(4);
 
 var _reactRedux = __webpack_require__(3);
 
+var _reactHelmet = __webpack_require__(31);
+
 var _routes = __webpack_require__(7);
 
 var _routes2 = _interopRequireDefault(_routes);
@@ -413,6 +415,11 @@ exports.default = function (req, store, context) {
     )
   );
 
+  // SEO support:
+  var helmet = _reactHelmet.Helmet.renderStatic();
+  var meta = helmet.meta.toString();
+  var title = helmet.title.toString();
+
   var content = (0, _server.renderToString)(app);
 
   var _extractCritical = (0, _emotionServer.extractCritical)(content),
@@ -421,7 +428,7 @@ exports.default = function (req, store, context) {
 
   // window.INITIAL_STATE Hydrate the client store with the server store
 
-  return '\n    <html>\n      <head></head>\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n        </script>\n        <script>\n          window.INITIAL_STYLE = ' + (0, _serializeJavascript2.default)(ids) + '\n        </script>\n        <style>\n          ' + css + '\n        </style>\n        <script src="bundle.js"></script>\n      </body>\n    </html>\n  ';
+  return '\n    <html>\n      <head>\n        ' + meta + '\n        ' + title + '\n      </head>\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n        </script>\n        <script>\n          window.INITIAL_STYLE = ' + (0, _serializeJavascript2.default)(ids) + '\n        </script>\n        <style>\n          ' + css + '\n        </style>\n        <script src="bundle.js"></script>\n      </body>\n    </html>\n  ';
 };
 
 /***/ }),
@@ -668,6 +675,8 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _reactHelmet = __webpack_require__(31);
+
 var _actions = __webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -700,6 +709,16 @@ var UserList = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(
+          _reactHelmet.Helmet,
+          null,
+          _react2.default.createElement(
+            'title',
+            null,
+            'Users List'
+          ),
+          _react2.default.createElement('meta', { property: 'og:title', content: 'Users List' })
+        ),
         _react2.default.createElement(
           'h3',
           null,
@@ -1120,6 +1139,12 @@ exports.default = function () {
       return state;
   }
 };
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-helmet");
 
 /***/ })
 /******/ ]);
