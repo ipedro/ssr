@@ -4,8 +4,9 @@
 
 This is a simple application to put into practice the concepts of server-side rendering and
 universal javascript that was based on the content of Stephen Grider's Server Side Rendering with
-React and Redux course (https://www.udemy.com/server-side -learning-with-react-and-redux / learn /
-v4 / overview). In general lines:
+React and Redux course
+(https://www.udemy.com/server-side-learning-with-react-and-redux/learn/v4/overview). In general
+lines:
 
 * The Webpack has two input configurations, one for the client and one for the server. Each one
   pointing to a different input file, one for the client and one for the server. The component trees
