@@ -6,7 +6,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-          plugins: ['transform-class-properties'],
+          plugins: ['emotion', 'transform-class-properties'],
           presets: ['react', 'stage-0', ['env', { targets: { browsers: ['last 2 versions'] } }]],
         },
       },
