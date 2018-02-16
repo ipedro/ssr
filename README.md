@@ -8,8 +8,8 @@ React and Redux course
 (https://www.udemy.com/server-side-learning-with-react-and-redux/learn/v4/overview). In general
 lines:
 
-* The Webpack has two input configurations, one for the client and one for the server. Each one
-  pointing to a different input file, one for the client and one for the server. The component trees
+* Webpack has two input configurations, one for the client and one for the server. Each one
+  pointing to a different input file, one for the client and another for the server. The component trees
   of these two files are the same, however, on the server, the actions are called by methods of the
   object representing the routes. When it receives a GET for a given URL, the server iterates
   through this object, finds the one that has the same path and executes the corresponding action
@@ -17,10 +17,10 @@ lines:
 
 * On the server, we create the markup HTML, set the div with id "root" to serve the client, and
   render the components using the renderToString method. In the client, we pass the same component
-  tree, but we use the react-dom hydrate method instead of the render, so the react can take control
-  and avoid unnecessary rendering with its diff algorithm.
+  tree, but we use the react-dom hydrate method instead of the render, so that React can take control
+  and avoid unnecessary rendering with it's diff algorithm.
 
-* The Redux has two stores. The Redux store on the client is re-hydrated by the server's store, when
+* Redux has two stores. The Redux store on the client is rehydrated by the server's store, when
   we pass the data from it to the server via a JSON (window.INITIAL_STATE), properly sanitized by
   Serialize (serialize-javascript).
 
